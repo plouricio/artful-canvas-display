@@ -1,8 +1,8 @@
 import { ArrowDown } from "lucide-react";
 
 const Hero = () => {
-  const scrollToGallery = () => {
-    const element = document.querySelector("#gallery");
+  const scrollToArtists = () => {
+    const element = document.querySelector("#artists");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -24,25 +24,25 @@ const Hero = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <p className="font-body text-lg md:text-xl text-muted-foreground mb-6 animate-fade-in tracking-widest uppercase">
-            Arte que transforma espacios
+            Colectivo de Arte Contemporáneo
           </p>
           
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 animate-fade-in-up">
-            <span className="block">Donde el Color</span>
-            <span className="block text-primary">Cobra Vida</span>
+            <span className="block">Tres Visiones</span>
+            <span className="block text-primary">Un Lienzo</span>
           </h1>
 
           <p className="font-body text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-12 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            Explorando paisajes, emociones y abstracciones a través del lienzo. 
-            Cada pincelada cuenta una historia única.
+            Desde paisajes serenos hasta abstracciones audaces. 
+            Descubre el trabajo de tres artistas unidos por la pasión.
           </p>
 
           <button
-            onClick={scrollToGallery}
+            onClick={scrollToArtists}
             className="group inline-flex items-center gap-3 font-display text-sm uppercase tracking-widest text-foreground hover:text-primary transition-colors animate-fade-in"
             style={{ animationDelay: "0.5s" }}
           >
-            Explorar Obras
+            Conoce a los Artistas
             <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
           </button>
         </div>
