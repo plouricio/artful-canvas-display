@@ -20,10 +20,7 @@ const ArtistCard = ({ artist, index }: ArtistCardProps) => {
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <Link
-        to={`/artista/${artist.id}`}
-        className="group block relative"
-      >
+      <Link to={`/artista/${artist.id}`} className="group block relative">
         {/* Main Image Container */}
         <div className="relative aspect-[3/4] overflow-hidden bg-muted">
           {/* Image */}
@@ -40,7 +37,7 @@ const ArtistCard = ({ artist, index }: ArtistCardProps) => {
           </motion.div>
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/50 to-charcoal/10 opacity-70 group-hover:opacity-85 transition-opacity duration-500" />
 
           {/* Warm tint on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-terracotta/0 group-hover:from-primary/10 group-hover:to-terracotta/5 transition-all duration-700" />
@@ -49,7 +46,7 @@ const ArtistCard = ({ artist, index }: ArtistCardProps) => {
           <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
             {/* Specialty Tag */}
             <motion.span
-              className="inline-block self-start px-3 py-1 mb-4 text-xs font-display uppercase tracking-widest bg-background/10 backdrop-blur-sm text-cream/90 border border-cream/20"
+              className="inline-block self-start px-3 py-1 mb-16 text-xs font-display uppercase tracking-widest bg-background/10 backdrop-blur-sm text-cream/90 border border-cream/20"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -59,7 +56,13 @@ const ArtistCard = ({ artist, index }: ArtistCardProps) => {
             </motion.span>
 
             {/* Name */}
-            <h3 className="font-display text-3xl md:text-4xl font-bold text-cream mb-3 group-hover:text-gold transition-colors duration-500">
+            <h3
+              className="font-accent text-2xl md:text-3xl text-cream mb-4 group-hover:text-gold transition-colors duration-500"
+              style={{
+                textShadow:
+                  "2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6), 0 0 40px rgba(0,0,0,0.4)",
+              }}
+            >
               {artist.name}
             </h3>
 

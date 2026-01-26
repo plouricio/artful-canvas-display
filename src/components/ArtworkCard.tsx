@@ -90,15 +90,15 @@ const ArtworkCard = ({ artwork, artist, index = 0 }: ArtworkCardProps) => {
         onClick={() => setIsModalOpen(true)}
       >
         {/* Image Container */}
-        <div className="relative aspect-[3/4] overflow-hidden bg-muted/50 mb-5">
+        <div className="relative overflow-hidden bg-muted/50 mb-5">
           {!imageLoaded && (
-            <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted/50 animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted/50 animate-pulse aspect-[4/3]" />
           )}
 
           <motion.img
             src={artwork.image}
             alt={artwork.title}
-            className={`w-full h-full object-cover transition-opacity duration-500 ${
+            className={`w-full h-auto object-contain transition-opacity duration-500 ${
               imageLoaded ? "opacity-100" : "opacity-0"
             }`}
             onLoad={() => setImageLoaded(true)}
@@ -180,14 +180,14 @@ const ArtworkCard = ({ artwork, artist, index = 0 }: ArtworkCardProps) => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Image */}
-              <div className="relative aspect-[3/4] overflow-hidden">
+              <div className="relative overflow-hidden flex items-center justify-center bg-charcoal/50">
                 <motion.img
                   initial={{ scale: 1.1 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   src={artwork.image}
                   alt={artwork.title}
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-[70vh] w-auto h-auto object-contain"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-cream/10" />
               </div>

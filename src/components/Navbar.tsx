@@ -55,7 +55,7 @@ const Navbar = () => {
             to="/"
             className="group relative font-display text-xl md:text-2xl font-bold tracking-tight text-foreground"
           >
-            <span className="relative z-10">GALLERY</span>
+            <span className="relative z-10 font-accent text-lg md:text-xl">Dos Kunst</span>
             <motion.span
               className="absolute -bottom-1 left-0 h-[2px] w-0 bg-gradient-to-r from-primary to-gold group-hover:w-full transition-all duration-500"
               layoutId="logo-underline"

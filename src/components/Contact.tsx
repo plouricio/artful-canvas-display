@@ -17,7 +17,7 @@ const Contact = () => {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -48,7 +48,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: "Location",
-      value: "Barcelona, Spain",
+      value: "Auckland N.Z.",
       href: null,
     },
     {
@@ -80,34 +80,14 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-20">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-block font-display text-sm uppercase tracking-[0.3em] text-primary mb-6"
-            >
-              Get in Touch
-            </motion.span>
-
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-8"
+              className="font-accent text-3xl md:text-4xl mb-16"
             >
-              Let's Talk{" "}
-              <span className="relative inline-block">
-                Art
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="absolute -bottom-2 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-gold origin-left"
-                />
-              </span>
+              Let's Talk Art
             </motion.h2>
 
             <motion.p
@@ -117,8 +97,9 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="font-body text-lg md:text-xl text-muted-foreground max-w-xl mx-auto"
             >
-              Interested in a piece? Looking for a custom commission? We'd be
-              delighted to hear from you.
+              Interested in a piece? Prints are available of any works on the
+              site. Originals, if available are also for sale. Looking for a
+              custom commission? We'd be delighted to hear from you.
             </motion.p>
           </div>
 

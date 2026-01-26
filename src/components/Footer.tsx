@@ -31,9 +31,9 @@ const Footer = () => {
             <Link
               to="/"
               onClick={scrollToTop}
-              className="inline-block font-display text-2xl md:text-3xl font-bold tracking-tight text-foreground hover:text-primary transition-colors"
+              className="inline-block font-accent text-xl md:text-2xl text-foreground hover:text-primary transition-colors"
             >
-              GALLERY
+              Dos Kunst
             </Link>
             <p className="font-body text-sm text-muted-foreground mt-3 max-w-xs">
               A contemporary art collective showcasing exceptional talent from around the world.
@@ -49,7 +49,7 @@ const Footer = () => {
             className="text-center"
           >
             <p className="font-body text-sm text-muted-foreground">
-              © {currentYear} Gallery Collective
+              © {currentYear} Dos Kunst
             </p>
             <p className="font-body text-xs text-muted-foreground/60 mt-2">
               Each piece is unique and original

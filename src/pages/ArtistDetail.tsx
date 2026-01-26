@@ -119,23 +119,23 @@ const ArtistDetail = () => {
 
               {/* Info with staggered animation */}
               <motion.div style={{ y: contentY }} className="lg:py-8">
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  className="inline-block font-display text-sm uppercase tracking-[0.2em] text-primary mb-4"
-                >
-                  {artist.specialty}
-                </motion.span>
-
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[0.95]"
+                  className="font-accent text-3xl md:text-4xl lg:text-5xl mb-6"
                 >
                   {artist.name}
                 </motion.h1>
+
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="inline-block font-display text-sm uppercase tracking-[0.2em] text-primary mb-8"
+                >
+                  {artist.specialty}
+                </motion.span>
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -145,34 +145,6 @@ const ArtistDetail = () => {
                 >
                   {artist.fullBio.map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
-                  ))}
-                </motion.div>
-
-                {/* Stats */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                  className="grid grid-cols-3 gap-6 py-8 border-y border-border"
-                >
-                  {[
-                    { value: artist.experience, label: "Years" },
-                    { value: artist.worksCreated, label: "Works" },
-                    { value: artist.exhibitions, label: "Exhibitions" },
-                  ].map((stat, i) => (
-                    <div key={stat.label} className="text-center">
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
-                        className="font-display text-3xl md:text-4xl font-bold text-primary block mb-1"
-                      >
-                        {stat.value}+
-                      </motion.span>
-                      <span className="font-body text-sm text-muted-foreground uppercase tracking-wider">
-                        {stat.label}
-                      </span>
-                    </div>
                   ))}
                 </motion.div>
 

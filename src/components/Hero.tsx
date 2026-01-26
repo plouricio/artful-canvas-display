@@ -25,8 +25,8 @@ const Hero = () => {
 
   // Get featured images from artists
   const featuredImages = artists
-    .filter(a => a.featuredImage)
-    .map(a => a.featuredImage!);
+    .filter((a) => a.featuredImage)
+    .map((a) => a.featuredImage!);
 
   return (
     <section
@@ -78,20 +78,6 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      <motion.div
-        style={{ y: y3, opacity }}
-        className="absolute top-[30%] right-[15%] w-[25vw] max-w-[280px] aspect-square pointer-events-none hidden lg:block"
-      >
-        <motion.img
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          src={featuredImages[2] || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"}
-          alt=""
-          className="w-full h-full object-cover rounded-sm shadow-lg"
-        />
-      </motion.div>
-
       {/* Soft gradient orbs */}
       <motion.div
         style={{ y: y1 }}
@@ -112,19 +98,19 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-body text-lg md:text-xl text-muted-foreground mb-6 tracking-[0.3em] uppercase"
+            className="font-body text-xs sm:text-sm md:text-base text-muted-foreground mb-8 md:mb-16 tracking-[0.2em] md:tracking-[0.3em] uppercase"
           >
-            Contemporary Art Collective
+            Dos Kunst Contemporary Collective
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl md:text-7xl lg:text-[6rem] font-bold leading-[0.9] mb-8 tracking-tight"
+            className="font-accent text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8"
           >
-            <span className="block text-foreground/90">Two Visions</span>
-            <span className="block mt-2 bg-gradient-to-r from-primary via-terracotta to-gold bg-clip-text text-transparent">
+            <span className="block text-foreground/90 mb-4 md:mb-6">Two Roads</span>
+            <span className="block pb-6 md:pb-8 pt-12 md:pt-20 bg-gradient-to-r from-primary via-terracotta to-gold bg-clip-text text-transparent">
               One Canvas
             </span>
           </motion.h1>
@@ -133,10 +119,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="font-body text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-16 leading-relaxed"
+            className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed px-4 md:px-0"
           >
-            From cosmic landscapes to bold abstractions.
-            <span className="block mt-1">Discover the work of two artists united by passion.</span>
+            From inner to outer worlds
+            <span className="block mt-1">
+              Discover the works of two travellers united by nonconformity.
+            </span>
           </motion.p>
 
           <motion.button

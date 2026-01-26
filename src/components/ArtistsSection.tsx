@@ -43,34 +43,14 @@ const ArtistsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20 md:mb-28">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-block font-display text-sm uppercase tracking-[0.3em] text-primary mb-6"
-          >
-            The Collective
-          </motion.span>
-
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight"
+            className="font-accent text-3xl md:text-4xl lg:text-5xl mb-16 md:mb-20"
           >
-            Meet the{" "}
-            <span className="relative inline-block">
-              Artists
-              <motion.span
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute -bottom-2 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-terracotta to-gold origin-left"
-              />
-            </span>
+            Meet the Artists
           </motion.h2>
 
           <motion.p
