@@ -44,10 +44,10 @@ const ArtistsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-20 md:mb-28">
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="font-accent text-3xl md:text-4xl lg:text-5xl mb-16 md:mb-20"
           >
             Meet the Artists
@@ -70,7 +70,19 @@ const ArtistsSection = () => {
         {/* Artists Grid */}
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-16 max-w-5xl mx-auto">
           {artists.map((artist, index) => (
-            <ArtistCard key={artist.id} artist={artist} index={index} />
+            <motion.div
+              key={artist.id}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.15,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <ArtistCard artist={artist} index={index} />
+            </motion.div>
           ))}
         </div>
 

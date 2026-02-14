@@ -3,6 +3,37 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { artists } from "@/data/artists";
 
+const headingContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+const lineVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const wordVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
+  },
+};
+
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -95,24 +126,41 @@ const Hero = () => {
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            initial={{ opacity: 0, y: 20, letterSpacing: "0.05em" }}
+            animate={{ opacity: 1, y: 0, letterSpacing: "0.3em" }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-body text-xs sm:text-sm md:text-base text-muted-foreground mb-8 md:mb-16 tracking-[0.2em] md:tracking-[0.3em] uppercase"
           >
             Dos Kunst Contemporary Collective
           </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            initial="hidden"
+            animate="visible"
+            variants={headingContainerVariants}
             className="font-accent text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8"
           >
-            <span className="block text-foreground/90 mb-4 md:mb-6">Two Roads</span>
-            <span className="block pb-6 md:pb-8 pt-12 md:pt-20 bg-gradient-to-r from-primary via-terracotta to-gold bg-clip-text text-transparent">
+            <motion.span
+              variants={lineVariants}
+              className="block text-foreground/90 mb-4 md:mb-6"
+            >
+              {["Two", "Roads"].map((word, i) => (
+                <motion.span
+                  key={i}
+                  variants={wordVariants}
+                  className="inline-block"
+                >
+                  {word}
+                  {i === 0 && "\u00A0"}
+                </motion.span>
+              ))}
+            </motion.span>
+            <motion.span
+              variants={wordVariants}
+              className="block mt-2 bg-gradient-to-r from-primary via-terracotta to-gold bg-clip-text text-transparent"
+            >
               One Canvas
-            </span>
+            </motion.span>
           </motion.h1>
 
           <motion.p

@@ -29,6 +29,7 @@ const ArtworkCard = ({ artwork, artist, index = 0 }: ArtworkCardProps) => {
   const { toast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [showInquiryForm, setShowInquiryForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -80,13 +81,16 @@ const ArtworkCard = ({ artwork, artist, index = 0 }: ArtworkCardProps) => {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -6, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{
           duration: 0.6,
           delay: index * 0.1,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="group cursor-pointer"
+        className="group cursor-pointer transition-shadow duration-500 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)]"
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
         onClick={() => setIsModalOpen(true)}
       >
         {/* Image Container */}
@@ -108,9 +112,9 @@ const ArtworkCard = ({ artwork, artist, index = 0 }: ArtworkCardProps) => {
 
           <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/30 transition-all duration-500 flex items-center justify-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileHover={{ opacity: 1, scale: 1 }}
-              className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              initial={false}
+              animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
               <div className="w-14 h-14 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center">
                 <Maximize2 className="w-5 h-5 text-charcoal" />
@@ -132,6 +136,7 @@ const ArtworkCard = ({ artwork, artist, index = 0 }: ArtworkCardProps) => {
 
           <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-cream/0 group-hover:border-cream/40 transition-all duration-500" />
           <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-cream/0 group-hover:border-cream/40 transition-all duration-500" />
+          <div className="absolute inset-0 ring-1 ring-inset ring-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
         </div>
 
         <div className="space-y-2">

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 interface CategoryFilterProps {
   categories: string[];
   activeCategory: string;
@@ -12,14 +14,21 @@ const CategoryFilter = ({ categories, activeCategory, onCategoryChange }: Catego
           key={category}
           onClick={() => onCategoryChange(category)}
           className={`
-            px-5 py-2.5 font-display text-sm uppercase tracking-wider transition-all duration-300
-            ${activeCategory === category 
-              ? "bg-foreground text-background" 
-              : "bg-transparent text-muted-foreground hover:text-foreground border border-border hover:border-foreground"
+            relative px-5 py-2.5 font-display text-sm uppercase tracking-wider transition-colors duration-300 border
+            ${activeCategory === category
+              ? "border-transparent text-background"
+              : "border-border text-muted-foreground hover:text-foreground hover:border-foreground"
             }
           `}
         >
-          {category}
+          {activeCategory === category && (
+            <motion.div
+              layoutId="active-pill"
+              className="absolute inset-0 bg-foreground"
+              transition={{ type: "spring", stiffness: 380, damping: 30 }}
+            />
+          )}
+          <span className="relative z-10">{category}</span>
         </button>
       ))}
     </div>

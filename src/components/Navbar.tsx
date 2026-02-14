@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -8,6 +8,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const { scrollYProgress } = useScroll();
+  const scrollProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -185,6 +187,17 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Scroll progress bar */}
+      {isScrolled && (
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-gold"
+          style={{ scaleX: scrollProgress, transformOrigin: "left" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        />
+      )}
     </motion.nav>
   );
 };

@@ -115,10 +115,14 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.1 + index * 0.12,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="group"
                 >
                   <div className="flex items-start gap-5">
@@ -155,10 +159,11 @@ const Contact = () => {
 
             {/* Form */}
             <motion.form
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 40, rotateY: 3 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformOrigin: "right center" }}
               onSubmit={handleSubmit}
               className="lg:col-span-3 space-y-8"
             >

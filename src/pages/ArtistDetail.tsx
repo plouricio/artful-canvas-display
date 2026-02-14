@@ -216,9 +216,11 @@ const ArtistDetail = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="space-y-6 font-body text-lg md:text-xl text-muted-foreground leading-relaxed"
                 >
-                  {artist.artistStatement.answer.map((paragraph, index) => (
+                  {artist.artistStatement.answer.map((paragraph, index, arr) => (
                     <p key={index} className="italic">
+                      {index === 0 && "\u201C"}
                       {paragraph}
+                      {index === arr.length - 1 && "\u201D"}
                     </p>
                   ))}
                 </motion.div>
