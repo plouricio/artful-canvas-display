@@ -129,7 +129,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20, letterSpacing: "0.05em" }}
             animate={{ opacity: 1, y: 0, letterSpacing: "0.3em" }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-body text-xs sm:text-sm md:text-base text-muted-foreground mb-8 md:mb-16 tracking-[0.2em] md:tracking-[0.3em] uppercase"
+            className="font-body text-xs sm:text-sm md:text-base text-muted-foreground mb-4 md:mb-12 tracking-[0.2em] md:tracking-[0.3em] uppercase"
           >
             Dos Kunst Contemporary Collective
           </motion.p>
@@ -138,11 +138,11 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={headingContainerVariants}
-            className="font-accent text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8"
+            className="font-display mb-6 md:mb-8 text-5xl md:text-5xl lg:text-[5rem]"
           >
             <motion.span
               variants={lineVariants}
-              className="block text-foreground/90 mb-4 md:mb-6"
+              className="block text-foreground/90"
             >
               {["Two", "Roads"].map((word, i) => (
                 <motion.span
@@ -157,7 +157,7 @@ const Hero = () => {
             </motion.span>
             <motion.span
               variants={wordVariants}
-              className="block mt-2 bg-gradient-to-r from-primary via-terracotta to-gold bg-clip-text text-transparent"
+              className="block font-display font-bold bg-gradient-to-r from-primary via-terracotta to-gold bg-clip-text text-transparent text-5xl md:text-5xl lg:text-[5rem]"
             >
               One Canvas
             </motion.span>
